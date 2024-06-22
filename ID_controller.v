@@ -42,7 +42,7 @@ output [15:0]alu_imm;
 output [4:0]cur_inst_type;
 
 reg [4:0]cur_inst_type;
-reg [3:0] rf_raddr0, rf_raddr1, rf_waddr;
+reg [3:0]rf_raddr0, rf_raddr1, rf_waddr;
 reg [15:0]alu_imm;
 
 parameter ALU_OP_AND = 4'b0000,
@@ -134,18 +134,18 @@ end
 //Controller
 
 assign branch_taken = ((cur_inst_type == INST_BOZ) && (!csr_rdata)) || 
-							 ((cur_inst_type == INST_BONZ) && csr_rdata) || write_pc2reg;
-assign write_pc2reg = (cur_inst_type == INST_JAL) || 
-							 (cur_inst_type == INST_JALR);
+		      ((cur_inst_type == INST_BONZ) && csr_rdata) || write_pc2reg;
+	 
+assign write_pc2reg = (cur_inst_type == INST_JAL) || (cur_inst_type == INST_JALR);
 assign csr_wen = ((cur_inst_type == INST_SLT) || (cur_inst_type == INST_SOE)) && (!halt);
-
 assign dm_wen = (cur_inst_type == INST_SH) && (!halt); 
 assign wrtie_mem_result2reg = cur_inst_type == INST_LH; 
 assign alu_b_src_sel_0 = branch_taken || 
-								 write_pc2reg || 
-								(cur_inst_type == INST_LH) ||
-								(cur_inst_type == INST_LI) || 
-								(cur_inst_type == INST_SH);
+			 write_pc2reg || 
+			 (cur_inst_type == INST_LH) ||
+			 (cur_inst_type == INST_LI) || 
+			 (cur_inst_type == INST_SH);
+	 
 assign alu_a_src_sel_0 = branch_taken && (!(cur_inst_type == INST_JALR));
 assign rf_wen = !(csr_wen || halt || (cur_inst_type == INST_SH) ||(cur_inst_type == INST_BOZ) || (cur_inst_type == INST_BONZ));
 assign alu_op = (cur_inst_type[4])? ALU_OP_ADD : cur_inst_type[3:0];
