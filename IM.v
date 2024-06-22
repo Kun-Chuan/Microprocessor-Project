@@ -18,7 +18,7 @@ always@(posedge clk or negedge rst)begin
 		inst_mem[8'h8]  = 16'b001_010_0_011_100_100; //sh a3, a4(4) */
 
 		// Second Test => Add loop program also test branch ,CSR and SOE
-	      /*inst_mem[8'h0] = 16'b001_001_0_000_000_001; //lh a1, 10 
+	      /*inst_mem[8'h0] = 16'b001_001_0_000_000_001; //lh a1, 10 a0(0) 
 		inst_mem[8'h2] = 16'b010_000_0_000_001_010; //li a2, 1
 		inst_mem[8'h4] = 16'b010_000_0_000_001_011; //li a3, 1
 		inst_mem[8'h6] = 16'b000_011_0_010_001_001; //add a1, a1, a2
@@ -31,7 +31,7 @@ always@(posedge clk or negedge rst)begin
 		inst_mem[8'h14] = 16'b001_001_1_010_000_001; /*lh a9, a8(2) */
 		
 		//Third Test => Test all of the remaining functions
-		inst_mem[8'h0]  <= 16'b001_001_0_000_000_001; //lh a1, 10 
+		inst_mem[8'h0]  <= 16'b001_001_0_000_000_001; //lh a1, 10 a0(0) 
 		inst_mem[8'h2]  <= 16'b010_000_0_000_001_010; //li a2, 1
 		inst_mem[8'h4]  <= 16'b010_000_0_000_001_011; //li a3, 1
 		inst_mem[8'h6]  <= 16'b000_011_0_010_001_001; //add a1, a1, a2
