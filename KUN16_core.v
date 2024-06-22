@@ -1,4 +1,3 @@
-// Finsih all component, process to evening event => verification  2:18:28, modifying IM => third checking
 module KUN16_core (clk, 
 						 rst, 
 						 pc_out, 
@@ -11,7 +10,7 @@ module KUN16_core (clk,
 						 dm_wen,
 						 dm_rdata,
 						 dm_wdata,
-						 csr_wen, // Check CSR for checking if the bug is from branch since the current insruction type are correct, but it did not enter branch 
+						 csr_wen, 
 						 csr_rdata,
 						 csr_wdata,
 						 inst_illegal,
