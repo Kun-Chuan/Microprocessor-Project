@@ -1,42 +1,42 @@
  module ID_controller(
-							inst,
-							branch_taken,
-							write_pc2reg,
-							csr_wen,
-							csr_rdata,
-							dm_wen,
-							wrtie_mem_result2reg,
-							alu_b_src_sel_0,
-							alu_a_src_sel_0,
-							alu_op,
-							rf_wen,
-							rf_raddr0,
-							rf_raddr1,
-							rf_waddr,
-							alu_imm,
-							cur_inst_type, // use for debug only
-							inst_illegal,
-							halt
-							);
+			inst,
+			branch_taken,
+			write_pc2reg,
+			csr_wen,
+			csr_rdata,
+			dm_wen,
+			wrtie_mem_result2reg,
+			alu_b_src_sel_0,
+			alu_a_src_sel_0,
+			alu_op,
+			rf_wen,
+			rf_raddr0,
+			rf_raddr1,
+			rf_waddr,
+			alu_imm,
+			cur_inst_type, // use for debug only
+			inst_illegal,
+			halt
+			);
 							
 input [15:0]inst;
 input csr_rdata;
 
 output branch_taken,
-		 write_pc2reg,
-		 csr_wen,
-		 dm_wen,
-		 wrtie_mem_result2reg,
-		 alu_b_src_sel_0,
-		 alu_a_src_sel_0,
-		 rf_wen,
-		 inst_illegal,
-		 halt;
+       write_pc2reg,
+       csr_wen,
+       dm_wen,
+       wrtie_mem_result2reg,
+       alu_b_src_sel_0,
+       alu_a_src_sel_0,
+       rf_wen,
+       inst_illegal,
+       halt;
 		 
 output [3:0]alu_op,
-				rf_raddr0,
-				rf_raddr1,
-				rf_waddr;
+	    rf_raddr0,
+	    rf_raddr1,
+	    rf_waddr;
 				
 output [15:0]alu_imm;
 output [4:0]cur_inst_type;
